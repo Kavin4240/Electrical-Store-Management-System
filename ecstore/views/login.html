@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Login Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    
+
+    <style>
+      body{
+        background-color: bisque;
+      }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+            background-color: lightgreen;
+        }
+
+        .card-header {
+            background-color: #fff;
+            border-bottom: none;
+            background-color: lightgreen;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border-color: #ced4da;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #7e57c2;
+        }
+
+        .form-check-label {
+            color: #6c757d;
+        }
+
+        .form-check-input:checked + .form-check-label::before {
+            border-color: #7e57c2;
+            background-color: #7e57c2;
+        }
+
+        .btn-primary {
+            background-color: #7e57c2;
+            border-color: #7e57c2;
+        }
+
+        .btn-primary:hover {
+            background-color: #6d4c41;
+            border-color: #6d4c41;
+        }
+
+        .btn-google {
+            background-color: #4285F4;
+            border-color: #4285F4;
+        }
+
+        .btn-google:hover {
+            background-color: #357ae8;
+            border-color: #357ae8;
+        }
+
+        .btn-facebook {
+            background-color: #3B5998;
+            border-color: #3B5998;
+        }
+
+        .btn-facebook:hover {
+            background-color: #2d4373;
+            border-color: #2d4373;
+        }
+
+        
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+    </style>
+  <script>
+   
+    $(document).ready(function() {
+        $("#myForm").validate({
+            rules: {
+                fname: {
+                    required: true,
+                    minlength: 10
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                pwd: {
+                    required: true,
+                    minlength: 8,
+                    strongPassword: true
+                }
+            },
+            messages: {
+                fname: {
+                    required: "Please enter your username",
+                    minlength: "Username must be at least 10 characters long"
+                },
+                email: {
+                    required: "Please enter your email",
+                    email: "Please enter a valid email address"
+                },
+                pwd: {
+                    required: "Please enter your password",
+                    minlength: "Password must be at least 8 characters long",
+                    strongPassword: "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character"
+                }
+            },
+            errorPlacement: function(error, element) {
+                // Add the 'invalid-feedback' class to the error element
+                error.addClass('invalid-feedback');
+
+                // Add the error element after the input element
+                error.insertAfter(element);
+            }
+        });
+
+        // Custom validation method for strong password
+        $.validator.addMethod("strongPassword", function(value, element) {
+            return this.optional(element) || /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
+        }, "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character");
+    });
+</script>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Login Form</h2>
+                </div>
+                <div class="card-body">
+<form id="myForm" method="post">
+  <div class="imgcontainer">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk6ODpK9GJ_wqWHorm67sjAJZK1Vqh9wyMYQ&usqp=CAU" alt="Avatar" class="avatar">
+  </div>
+
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="fname" name="fname" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="pwd" name="pwd" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+    <hr>
+    <!-- <div class="text-center">
+        <button type="button" class="btn btn-google"><i class="fab fa-google"></i> Login with Google</button>
+        <button type="button" class="btn btn-facebook"><i class="fab fa-facebook-f"></i> Login with Facebook</button>
+    </div> -->
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

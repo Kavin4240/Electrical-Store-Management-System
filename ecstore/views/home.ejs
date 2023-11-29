@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Homepage</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body{
+            background-color:blanchedalmond;
+        }
+      .sidebar:hover {
+    width: 150px;
+}
+.custom-navbar {
+    height: 100px; /* Change this value to your desired height */
+}
+.sidebar ul li:hover {
+  background-color: pink;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.custom-navbar .nav-item:hover .nav-link {
+    border-radius: 15px;
+    color: #fff;
+    background-color: blueviolet; /* Change this to the desired hover background color */
+}
+
+#k{
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.dropdown:hover .dropdown-menu {
+        display: block;
+        background-color: palegoldenrod;
+    }
+   .h2{
+    font-size: 20px;
+   }
+
+
+    </style>
+</head>
+<body>
+    <!-- nav bar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-warning custom-navbar">
+    <a class="navbar-brand" href="#">
+        <img src="https://t4.ftcdn.net/jpg/04/21/45/51/360_F_421455125_uq2szZSTeL8LoFZ6QJPBt95Hz8xDgECQ.jpg" width="50" height="50" class="d-inline-block align-down" alt="">
+         <strong style="color: blueviolet;font-size: 30px;">JaiMaaruthi Electricals and Hardwares</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/" id="k">Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/login" id="k">Login</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/display_products" id="k">Inventory</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/display_invoices" id="k">Invoice</a>
+              
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+       
+    </div>
+  </nav>
+   
+
+    <!-- Sidebar -->
+      <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-info sidebar">
+                <div class="sidebar-sticky"><br>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/dashboard" style="color:#fff;">Dashboard</a>
+                        </li><br>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/display_employees" style="color: #fff;">Employees</a>
+                        </li><br>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/display_cus" style="color: #fff;">Customers</a>
+                        </li><br>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/display_products" style="color: #fff;">Products</a>
+                        </li><br>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
+                                Generating invoice
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/display_reports">Report</a>
+                                
+                                <a class="dropdown-item" href="/display_invoices">Invoice</a>
+                            </div>
+                        </li><br>
+                    </ul>
+                </div>
+            </nav>  
+
+           
+                                
+                               
+            
+            <!-- Main Content -->
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
+      <p class="h2">Electrical store management system</p>
+  </div>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img class="d-block w-100" src="https://content.jdmagicbox.com/comp/erode/g9/9999px424.x424.151013172027.k6g9/catalogue/jai-maruthi-electricals-hardwares-and-steels-mettukadai-erode-hardware-shops-d4e5lti.jpg" alt="First slide" width="600px" height="600px">
+              <div class="carousel-caption d-none d-md-block">
+                  <h3 style="color: white;">JaiMaaruthi Electricals and Hardwares</h3>
+                  <h5 style="color: white;">First choice is the best choice!!</h5>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <img class="d-block w-100" src="https://cdn.pixabay.com/photo/2017/09/25/17/20/chart-2785902_960_720.jpg" alt="Second slide" width="600px" height="600px">
+              <div class="carousel-caption d-none d-md-block">
+                  <h3 style="color: blue;">Keep your work powered with our products!</h3>
+                  <h5 style="color: blue;">We had all kinds of electrical and hardware products at low cost.</h5>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <img class="d-block w-100" src="https://articles.cyzerg.com/hubfs/Warehouse%20Inventory%20Management.jpg" alt="Third slide" width="600px" height="600px">
+              <div class="carousel-caption d-none d-md-block">
+                  <h3 style="color: blueviolet;">One stop solution for all your needs!</h3>
+              </div>
+          </div>
+      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+      </a>
+  </div>
+</main>
+
+            <!-- Main Content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4"><br><br><br>
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center">
+                    <!-- <h1 class="h2"></h1> -->
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card" style="width: 29rem;">
+                            
+                            <div class="card-body">
+                                <img src="https://media.istockphoto.com/id/1390717558/photo/two-employees-checking-inventory-on-warehouse-racks.jpg?b=1&s=612x612&w=0&k=20&c=c6IHdOMxa03VJOVtk5GMGXKUkQuHZZIVQuZMjhJPfTU=" class="card-img-top"> 
+                                <br><br>
+                                <h5 class="card-title">Hello Admin!!</h5>
+                                <p class="card-text">Manage your inventory with ease and keep track of stock levels, orders, and suppliers. Never run out of stock again!</p>
+                                <a href="/" class="btn btn-primary">Explore more!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card" style="width: 29rem;">
+                           
+                            <div class="card-body">
+                                <img src="https://media.istockphoto.com/id/1397665291/photo/businessman-use-magnifying-glass-with-a-checklist-on-clipboard-paper-successfully-complete.jpg?b=1&s=612x612&w=0&k=20&c=EHR2UihUy88NDpModK8e7xVarLWck8kaKx1tVVnMmRk=" class="card-img-top">
+                                <br><br>
+                                <h5 class="card-title">Amp up your inventory control with us!</h5>
+                                <p class="card-text">Boost your sales with our system that allows you to track sales, create invoices, and manage customer information.</p>
+                                <a href="/" class="btn btn-primary">Explore more!</a>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </main>
+        </div>
+    </div>
+    
+<!-- About us -->
+    <section class="container-fluid py-5" ><br><br>
+        <div class="row">
+            <!-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" style="margin-left: 250px;"> -->
+
+          <div class="col-md-6 d-flex justify-content-center align-items-center" >
+            <img src="https://www.searchenginejournal.com/wp-content/uploads/2019/01/Top-10-Ranking-About-Us-Pages.png" class="card-img-top" alt="Logo" class="img-fluid" style="width: 460px;height:300px;margin-left: 250px;">
+          </div>
+          <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <div>
+              <h2>About Us</h2><br>
+              <p>Jai Maruthi Electricals Hardwares And Steels in Erode is one of the leading businesses <br>
+                in the Hardware Shops. Also known for Hardware Shops, Home Appliance Dealers, Electrical <br>
+                Shops, Cement Dealers, PVC Pipe Dealers, Paint Dealers, Electrical Goods Dealers, Steel <br>
+                Dealers and much more. Find Address Contact Number, Reviews & Ratings, Photos, Maps of Jai <br>
+                Maruthi Electricals Hardwares And Steels, Erode
+            </p>
+            </div>
+          </div>
+        </div>
+      </section><br><br>
+      
+      <!-- Footer part -->
+      
+      <footer class="bg-dark text-light py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="mb-3" style="color: palegoldenrod;">Recent pages</h5>
+              <ul class="list-unstyled">
+                <li><a href="/">Home</a></li>
+                <li><a href="/display_products">Products</a></li>
+                <li><a href="/display_reports">Report</a></li>
+                <li><a href="/display_invoices">Invoicde</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h5 class="mb-3" style="color: palegoldenrod;">Move Back!</h5>
+              <p>
+                <a href="#" class="btn btn-primary mr-2">Log out</a>
+                <a href="#" class="btn btn-outline-light">Contact us</a>
+              </p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="mb-3" style="color: palegoldenrod;">Few words!</h5>
+              <p>Our shop has received a 4.5 rating by the people who have visited before. So, If you need to get your hands on any kind of hardware materials, do try out this place</p>
+            </div>
+            <div class="col-md-3">
+              <h5 class="mb-3" style="color: palegoldenrod;">Contact Us</h5>
+              <ul class="list-unstyled">
+                <li>275 - A Opp.Essar Petrol Bunk,Veppampalayam Pirivu,</li>
+                <li>Perundurai Mainroad,</li>
+                <li>Erode - 638107</li>
+                <li>Phone: +91 81108 59955</li>
+                <li>Email: jaimaaruthi.erd@gmail.com</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

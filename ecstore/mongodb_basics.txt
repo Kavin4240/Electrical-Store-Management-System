@@ -1,0 +1,8 @@
+//for installing express
+npm install express body parser mongoose nodemon
+
+//
+mkdir foldername
+cd foldername
+npm init
+code .

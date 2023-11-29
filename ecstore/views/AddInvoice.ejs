@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.11.2/themes/ui-lightness/jquery-ui.css">
+	<title>Product Order Form</title>
+	<style>
+		label{
+			color:brown;
+			font-family: 'Times New Roman', Times, serif;
+		}
+		.btn
+		{
+			font-family: 'Times New Roman', Times, serif;
+		}
+		h2{
+			font-family: 'Times New Roman', Times, serif;
+		}
+		input{
+			font-family: 'Times New Roman', Times, serif;
+			color:darkgoldenrod;
+		}
+		body{
+			background-color: lightgreen;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$("#invoicedate").click(function(){
+               $("#invoicedate").datepicker();
+			});
+		});
+	</script>
+	</head>
+<body>
+	<div class="container-fluid">
+		<div class="text-center"><h2>Add Invoice</h2></div>
+    <form id="my-form" method="post" action="/add-invoice" style="max-width:500px; margin:0 auto;">
+        <div id="rows-container">
+			<div class=" rounded p-3">
+				<div class="form-group row">
+					<label class="col-sm-4 ">Invoice no</label>
+					<div class="col-sm-8">
+					<input type="text" id="invoiceno"  name="invoiceno" class="form-control" required  >
+					</div><br><br>
+					<div class="form-group row">
+						<label class="col-sm-4 ">Invoice date</label>
+						<div class="col-sm-8">
+						<input type="text" id="invoicedate"  name="invoicedate" class="form-control" required  >
+						<!-- <div id="datepicker"></div> -->
+						</div><br><br>
+				<div class="form-group row">
+					<label class="col-sm-4 ">Cus_mob_no</label>
+					<div class="col-sm-8">
+					<input type="number" id="phno"  name="phno" class="form-control" required  >
+					</div><br><br>
+		            <div class="form-group row">
+						<label class="col-sm-4 ">Cus_name</label>
+						<div class="col-sm-8">
+						<input type="text" id="fname"  name="fname" class="form-control" required  >
+						</div><br><br>
+						<div class="form-group row">
+							<label class="col-sm-4 ">Cus_address</label>
+							<div class="col-sm-8">
+							<textarea cols="40" rows="5" name="add" id="add" class="form-control" required></textarea>
+							</div><br><br>
+				
+				<br><br><br>
+			<div class="form-group row">
+			
+          <div class="row" style="padding-left: 10ch;width: 100%;">
+           <label>Pname</label> <input type="text" class="form-control" name="product_name[]" placeholder="Product Name" required>
+           <label>Price</label> <input type="number" class="form-control" name="price[]" placeholder="Price" required>
+           <label>Quantity</label> <input type="number" class="form-control" name="quantity[]" placeholder="Quantity" required oninput="calculateTotal(this)">
+            <label>Total</label><input type="number" class="form-control" name="total[]" placeholder="Total" required readonly><br>
+          </div>
+        </div>
+		</div><br><br><br>
+        <button type="button" style="margin:3rem;" clsss="btn btn-success" onclick="addRow()">Add Row</button><br><br>
+        <button type="submit" style="margin:2rem;" class="btn btn-danger">Submit</button>
+
+		<!-- <label>Grand Total</label><input id="grand-total" type="number" name="grand-total" value="0.0" placeholder="Grand-Total" readonly><br>  -->
+      </form>
+
+
+	  
+      <p>Grand Total: <span id="grand-total">0.00</span></p>
+	  
+
+      <script>
+        function addRow() {
+            var container = document.getElementById("rows-container");
+            var row = document.createElement("div");
+            row.className = "row";
+            row.innerHTML = `<div style="padding-left:10ch">
+              <input type="text" name="product_name[]" placeholder="Product Name">
+              <input type="number" name="price[]" placeholder="Price">
+              <input type="number" name="quantity[]" placeholder="Quantity" oninput="calculateTotal(this)">
+              <input type="number" name="total[]" placeholder="Total" readonly><br>
+			  </div>
+            `;
+            container.appendChild(row);
+          }
+          
+        function calculateTotal(input) {
+          var row = input.parentNode;
+          var price = row.querySelector('input[name="price[]"]').value;
+          var quantity = input.value;
+          var total = price * quantity;
+          row.querySelector('input[name="total[]"]').value = total;
+          calculateGrandTotal();
+        }
+
+        function calculateGrandTotal() {
+          var grandTotal = 0;
+          var rows = document.querySelectorAll('.row');
+          for (var i = 0; i < rows.length; i++) {
+            var total = rows[i].querySelector('input[name="total[]"]').value;
+            if (!isNaN(total)) {
+              grandTotal += Number(total);
+            }
+          }
+          console.log(grandTotal);
+          document.querySelector('#grand-total').textContent = grandTotal.toFixed(2);
+        }
+      
+      </script>
+</body>
+</html>

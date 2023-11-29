@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Manage Purchase Products</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"  >
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" ></script>
+<style>
+a
+{
+  text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+}
+.nav-link
+{
+   font-size:20px;
+}
+body{
+  
+  font-family: 'Times New Roman', Times, serif;
+}
+h1,h5,p{
+  font-family: 'Times New Roman', Times, serif;
+}
+</style>
+<script>
+  function add()
+  {
+    alert("Product added successfully");
+  }
+</script>
+</head>
+<body>
+<form><div class="container-fluid text-center">
+<div><h2>Purchase List</h2></div>
+
+<table class="table table-bordered">
+  <tr class="table-success">
+    <th>Sname</th>
+    <th>Pname</th>
+    <th>Image</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+<%for(let i of suppliers){%>
+<tr class="table-success">
+  <td><%=i.sname %></td>
+   <td><%=i.pdname %></td> 
+  <td><img src="<%=i.image %>" width="100px" height="100px"></td>
+  <td ><%=i.quan %></td>
+  <td><%=i.price %></td>
+ <td> <button class="btn btn-success"><a href="/supplier/<%=i._id %>/edits">Edit</a></button></td>
+<td><button class="btn btn-danger"><a href="/supplier/<%=i._id %>/delete">Delete</a></button></td></form>
+</div>
+</tr>
+<%}%>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Add Customer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script>
+ $(document).ready(function() {
+   $.validator.addMethod("passwordRule",function(value ){
+     return /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(value);
+   });
+   $.validator.addMethod("phnoRule",function(value ){
+      return /^(0|91)?[6-9][0-9]{9}$/.test(value);
+   });
+   $("#forms").validate({
+   rules: {
+          fname: {
+           required : true
+          },
+          add:{
+            required : true
+          },
+          email: {
+           required : true,
+           email : true
+          },
+          phno:{
+             required:true,
+            phnoRule:true
+         },
+        
+        pwd: {
+         required : true,
+           passwordRule: true
+             }, 
+        pwd1: {
+           required : true,
+           equalTo:"#p"
+            }
+             },
+         messages:{
+       fname:{
+       required:" name is required"
+     },
+       email: {
+           required : "email is required",email : "enter correct email"
+          },        
+          phno:{
+             required:"Phone number is required",
+             phnoRule:"It should be exactly 10 digits"
+          },
+       pwd: {
+           required : "password is required",
+          passwordRule: "oneuppercase,lowercase,number,specialchar"
+          },
+          pwd1: {
+           required : "password is required",
+           equalTo: "not same length"
+          },
+          add: {
+           required : "Address is required"
+          },
+        }, 
+        errorPlacement: function(error, element){
+            
+             error.insertAfter(element);
+         }
+ });
+ $("button").click(function(){
+  var d=$("#forms").serializeArray();
+
+ $.each(d,function(i,field){
+     $("#div").append(field.name+":"+field.value+" ");
+ });
+ });
+ });
+</script>
+    <style>
+        body {
+            background-color:burlywood;
+            background-position: top 60% right 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        label {
+            color: rgb(217, 34, 34);
+            margin-inline-end: 5px;
+        
+        }
+        input {
+            padding: 3px 4px 3px 4px;
+            border-radius: 10px;
+            border-style: none;
+        }
+        #num1{
+            appearance: none;
+        }
+        select {
+            padding: 3px 10px 3px 10px;
+            border-radius: 10px;
+            border-style: none;
+        }
+        textarea {
+            border-radius: 10px;
+            border-style: none;
+        
+        }
+        .btn {
+            border-style: none;
+            font-size: 15px;
+            /* border-radius: 10px; */
+            
+        }
+    </style>
+</head>
+<body>
+   
+        <h1 class="text-success" style="text-align:center;">Add Customer</h1>
+        <div class="col-lg-3 mx-auto">
+        <form action="/customer" method="post" id="forms">
+            <label>Full Name:</label>
+            <input type="text" name="fname" class="form-control" placeholder="Enter your Name"/><br><br>
+            <label>E-Mail:</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter your Email"/><br><br>
+           
+            <label>Mobile number:</label>
+            <input type="number" name="phno" id="num1" class="form-control" placeholder="It should be exactly 10 digits!!"/><br><br>
+            <label>Address:</label>
+            <input type="text" name="add" class="form-control" placeholder="Enter your address"/><br><br>     
+             <button class="btn btn-success" type="submit" value="Submit">Save</button>
+        </form>
+    </div>
+    <div id="div"></div>
+</body>
+</html>
