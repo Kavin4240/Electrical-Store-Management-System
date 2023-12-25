@@ -18,3 +18,10 @@ It is the web application framework that simplifies the process of handling HTTP
 **4.npm install ejs**
 
 It is a templating engine that allows you to embed dynamic content in your HTML views, making it easier to generate dynamic web pages.
+
+**5.npm install moment**
+
+In Node.js application, the inclusion of the moment library is likely intended to facilitate the generation of daily sales reports. You can filter and retrieve sales data based on the current date, allowing for the seamless creation of daily reports and enhancing the precision of date-related operations within your sales reporting functionality.
+
+
+
